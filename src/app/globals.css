@@ -1,0 +1,21 @@
+:root {
+  --background: #fafaf8;
+  --foreground: #1d2421;
+  --ink: #17201c;
+  --muted: #65706b;
+  --line: #dfe3e0;
+  --accent: #18734d;
+}
+
+* { box-sizing: border-box; padding: 0; margin: 0; }
+html { scroll-behavior: smooth; }
+body {
+  min-height: 100vh;
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, "Microsoft YaHei", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+button, input, textarea, select { font: inherit; }
+::selection { color: white; background: var(--accent); }

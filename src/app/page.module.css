@@ -1,0 +1,115 @@
+.header {
+  height: 72px;
+  padding: 0 6vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  background: rgba(250, 250, 248, 0.92);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(12px);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 720;
+  font-size: 17px;
+}
+
+.brandMark, .toolMark {
+  display: grid;
+  place-items: center;
+  color: white;
+  background: var(--ink);
+  font-weight: 750;
+}
+
+.brandMark { width: 32px; height: 32px; border-radius: 6px; }
+.environment { font-size: 13px; color: var(--muted); }
+
+.intro {
+  min-height: 480px;
+  padding: 100px 6vw 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(120deg, #fafaf8 55%, #e7f0ec 55%);
+}
+
+.eyebrow {
+  margin-bottom: 16px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 750;
+  text-transform: uppercase;
+}
+
+.intro h1 {
+  max-width: 760px;
+  color: var(--ink);
+  font-size: clamp(48px, 7vw, 88px);
+  line-height: 1.04;
+  letter-spacing: 0;
+}
+
+.lead {
+  max-width: 620px;
+  margin-top: 26px;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+.tools, .readiness { padding: 80px 6vw; }
+.tools { border-bottom: 1px solid var(--line); }
+.sectionHeading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 34px; }
+.sectionHeading h2, .readiness h2 { font-size: 30px; font-weight: 720; }
+.count { color: var(--muted); font-size: 14px; }
+.toolGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+
+.toolCard {
+  min-height: 210px;
+  padding: 28px;
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  grid-template-rows: 1fr auto;
+  gap: 0 20px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: white;
+}
+
+.toolMark { width: 52px; height: 52px; border-radius: 7px; font-size: 18px; }
+.toolCopy h3 { margin-bottom: 8px; font-size: 21px; }
+.toolCopy p, .readinessNote { color: var(--muted); line-height: 1.7; }
+.status { grid-column: 2; align-self: end; color: var(--accent); font-size: 13px; font-weight: 680; }
+
+.readiness { display: grid; grid-template-columns: minmax(260px, 0.8fr) minmax(420px, 1.2fr); gap: 8vw; background: var(--ink); color: white; }
+.readiness .eyebrow { color: #8fcbb1; }
+.readinessNote { max-width: 390px; margin-top: 16px; color: #a9b0ad; }
+.checklist div { padding: 16px 0; display: flex; align-items: center; justify-content: space-between; gap: 16px; border-bottom: 1px solid #343b38; }
+.checklist dt { color: #a9b0ad; }
+.checklist dd { display: flex; align-items: center; gap: 8px; font-weight: 650; }
+.done { color: #9ed7be; }
+.pending { color: #f0c174; }
+.footer { min-height: 72px; padding: 0 6vw; display: flex; align-items: center; justify-content: space-between; color: var(--muted); font-size: 12px; border-top: 1px solid #303633; background: var(--ink); }
+
+@media (max-width: 720px) {
+  .header { padding: 0 20px; }
+  .environment { display: none; }
+  .intro { min-height: 410px; padding: 72px 20px 56px; background: linear-gradient(165deg, #fafaf8 70%, #e7f0ec 70%); }
+  .intro h1 { font-size: 48px; }
+  .lead { font-size: 16px; }
+  .tools, .readiness { padding: 56px 20px; }
+  .toolGrid, .readiness { grid-template-columns: 1fr; }
+  .toolCard { min-height: 200px; padding: 22px; }
+  .readiness { gap: 32px; }
+  .checklist div { align-items: flex-start; }
+  .checklist dd { text-align: right; }
+  .footer { padding: 0 20px; }
+}
