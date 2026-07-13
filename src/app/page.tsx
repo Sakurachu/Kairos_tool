@@ -1,90 +1,76 @@
+import { ArrowRight, CheckCircle2, Gift, Vote } from "lucide-react";
+import Link from "next/link";
 import styles from "./page.module.css";
 import { siteConfig } from "@/config/site";
 
 const tools = [
   {
     name: "在线投票",
-    description: "创建选项、收集投票并查看实时结果。",
-    status: "准备接入数据库",
-    mark: "票",
+    description: "创建选项、分享链接，实时查看每个选项的票数。",
+    href: "/new?type=poll",
+    icon: Vote,
+    tone: "green",
   },
   {
     name: "公平抽奖",
-    description: "固定参与名单，由服务端生成并保存开奖结果。",
-    status: "准备接入数据库",
-    mark: "奖",
+    description: "收集参与者，由服务端随机开奖并永久保存结果。",
+    href: "/new?type=lottery",
+    icon: Gift,
+    tone: "yellow",
   },
-];
-
-const readiness = [
-  ["应用框架", "Next.js + TypeScript", true],
-  ["Vercel 部署", "已上线", true],
-  ["健康检查", "/api/health", true],
-  ["数据库", "等待连接", false],
-  ["Git 远程仓库", "已连接", true],
 ] as const;
 
 export default function Home() {
   return (
     <main>
       <header className={styles.header}>
-        <a className={styles.brand} href="#top" aria-label={`${siteConfig.name} 首页`}>
-          <span className={styles.brandMark}>集</span>
+        <Link className={styles.brand} href="/" aria-label={`${siteConfig.name} 首页`}>
+          <span className={styles.brandMark}>小</span>
           <span>{siteConfig.name}</span>
-        </a>
-        <span className={styles.environment}>线上测试环境</span>
+        </Link>
+        <span className={styles.environment}>
+          <CheckCircle2 size={15} aria-hidden="true" /> 数据库已连接
+        </span>
       </header>
 
-      <section className={styles.intro} id="top">
-        <p className={styles.eyebrow}>轻量、清楚、可分享</p>
-        <h1>需要做个决定？<br />交给一个简单工具。</h1>
+      <section className={styles.intro}>
+        <p className={styles.eyebrow}>不用注册，创建后立即分享</p>
+        <h1>投票和抽奖，<br />现在就能开始。</h1>
         <p className={styles.lead}>{siteConfig.description}</p>
+        <Link className={styles.primaryAction} href="/new">
+          创建新活动 <ArrowRight size={18} aria-hidden="true" />
+        </Link>
       </section>
 
       <section className={styles.tools} aria-labelledby="tools-title">
         <div className={styles.sectionHeading}>
           <div>
-            <p className={styles.eyebrow}>工具列表</p>
-            <h2 id="tools-title">从这里开始</h2>
+            <p className={styles.eyebrow}>选择工具</p>
+            <h2 id="tools-title">今天要解决什么？</h2>
           </div>
-          <span className={styles.count}>{tools.length} 个工具</span>
+          <span className={styles.count}>2 个工具</span>
         </div>
 
         <div className={styles.toolGrid}>
-          {tools.map((tool) => (
-            <article className={styles.toolCard} key={tool.name}>
-              <div className={styles.toolMark} aria-hidden="true">{tool.mark}</div>
-              <div className={styles.toolCopy}>
-                <h3>{tool.name}</h3>
-                <p>{tool.description}</p>
-              </div>
-              <span className={styles.status}>{tool.status}</span>
-            </article>
-          ))}
+          {tools.map((tool) => {
+            const Icon = tool.icon;
+            return (
+              <Link className={`${styles.toolCard} ${styles[tool.tone]}`} href={tool.href} key={tool.name}>
+                <span className={styles.toolIcon}><Icon size={25} aria-hidden="true" /></span>
+                <div className={styles.toolCopy}>
+                  <h3>{tool.name}</h3>
+                  <p>{tool.description}</p>
+                </div>
+                <ArrowRight className={styles.cardArrow} size={21} aria-hidden="true" />
+              </Link>
+            );
+          })}
         </div>
-      </section>
-
-      <section className={styles.readiness} aria-labelledby="readiness-title">
-        <div>
-          <p className={styles.eyebrow}>发布状态</p>
-          <h2 id="readiness-title">上线前准备</h2>
-          <p className={styles.readinessNote}>基础发布已经完成，连接数据库后即可启用投票和抽奖的数据功能。</p>
-        </div>
-        <dl className={styles.checklist}>
-          {readiness.map(([label, value, done]) => (
-            <div key={label}>
-              <dt>{label}</dt>
-              <dd className={done ? styles.done : styles.pending}>
-                <span aria-hidden="true">{done ? "✓" : "·"}</span>{value}
-              </dd>
-            </div>
-          ))}
-        </dl>
       </section>
 
       <footer className={styles.footer}>
         <span>{siteConfig.name}</span>
-        <span>Next.js / Vercel Ready</span>
+        <span>Neon PostgreSQL / Vercel</span>
       </footer>
     </main>
   );

@@ -1,9 +1,16 @@
 import { NextResponse } from "next/server";
+import { getDb } from "@/lib/db";
 
-export function GET() {
-  return NextResponse.json({
-    status: "ok",
-    service: process.env.NEXT_PUBLIC_SITE_NAME || "webtest-tools",
-    timestamp: new Date().toISOString(),
-  });
+export async function GET() {
+  try {
+    await getDb()`SELECT 1`;
+    return NextResponse.json({
+      status: "ok",
+      database: "connected",
+      service: process.env.NEXT_PUBLIC_SITE_NAME || "webtest-tools",
+      timestamp: new Date().toISOString(),
+    });
+  } catch {
+    return NextResponse.json({ status: "degraded", database: "unavailable" }, { status: 503 });
+  }
 }

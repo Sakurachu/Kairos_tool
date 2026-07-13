@@ -1,0 +1,73 @@
+.shell { min-height: 100vh; background: #f6f7f5; }
+.topbar { height: 68px; padding: 0 max(20px, calc((100vw - 1040px) / 2)); display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); background: white; }
+.brand { display: inline-flex; align-items: center; gap: 9px; font-weight: 720; }
+.brandMark { width: 30px; height: 30px; display: grid; place-items: center; border-radius: 6px; color: white; background: var(--ink); }
+.backLink, .iconButton { min-height: 38px; display: inline-flex; align-items: center; gap: 7px; color: var(--muted); font-size: 14px; }
+.iconButton { padding: 0 11px; border: 1px solid var(--line); border-radius: 6px; background: white; cursor: pointer; }
+.content { width: min(760px, calc(100% - 40px)); margin: 0 auto; padding: 62px 0 90px; }
+.wideContent { width: min(920px, calc(100% - 40px)); margin: 0 auto; padding: 54px 0 90px; }
+.eyebrow { margin-bottom: 12px; color: var(--accent); font-size: 12px; font-weight: 750; }
+.title { color: var(--ink); font-size: 38px; line-height: 1.15; }
+.subtitle { margin-top: 13px; color: var(--muted); line-height: 1.7; }
+.panel { margin-top: 30px; padding: 28px; border: 1px solid var(--line); border-radius: 8px; background: white; }
+.segment { display: grid; grid-template-columns: 1fr 1fr; padding: 4px; border-radius: 7px; background: #eef0ee; }
+.segment button { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 0; border-radius: 5px; color: var(--muted); background: transparent; cursor: pointer; }
+.segment .active { color: var(--ink); background: white; box-shadow: 0 1px 5px rgba(20, 31, 26, 0.09); font-weight: 680; }
+.form { margin-top: 28px; display: grid; gap: 21px; }
+.field { display: grid; gap: 8px; }
+.field label, .fieldLabel { color: var(--ink); font-size: 14px; font-weight: 680; }
+.field input, .field textarea, .optionRow input, .joinRow input { width: 100%; border: 1px solid #ccd2cf; border-radius: 6px; background: white; color: var(--ink); outline: 0; }
+.field input, .optionRow input, .joinRow input { height: 46px; padding: 0 13px; }
+.field textarea { min-height: 100px; padding: 12px 13px; resize: vertical; }
+.field input:focus, .field textarea:focus, .optionRow input:focus, .joinRow input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(24, 115, 77, 0.1); }
+.optionList { display: grid; gap: 10px; }
+.optionRow { display: grid; grid-template-columns: 1fr 40px; gap: 8px; }
+.removeButton { width: 40px; height: 46px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 6px; color: #9b3a30; background: white; cursor: pointer; }
+.addButton { width: fit-content; height: 40px; padding: 0 12px; display: inline-flex; align-items: center; gap: 7px; border: 1px solid var(--line); border-radius: 6px; color: var(--accent); background: white; cursor: pointer; font-weight: 650; }
+.submitButton, .dangerButton { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 9px; border: 0; border-radius: 6px; color: white; background: var(--ink); cursor: pointer; font-weight: 700; }
+.submitButton:hover { background: var(--accent); }
+.submitButton:disabled, .dangerButton:disabled { opacity: 0.55; cursor: not-allowed; }
+.dangerButton { width: 100%; background: #a4382e; }
+.error, .success { padding: 11px 13px; border-radius: 6px; font-size: 14px; }
+.error { color: #8d2f28; background: #f9e7e5; }
+.success { color: #145f40; background: #e2f2e9; }
+
+.activityHeader { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: start; }
+.status { width: fit-content; margin-bottom: 13px; padding: 5px 9px; border-radius: 5px; color: var(--accent); background: #e1f0e8; font-size: 12px; font-weight: 700; }
+.statusClosed { color: #7b5412; background: #f5e9c8; }
+.activityTitle { font-size: 40px; line-height: 1.18; overflow-wrap: anywhere; }
+.activityDescription { margin-top: 14px; color: var(--muted); line-height: 1.7; }
+.actionBar { display: flex; gap: 8px; }
+.grid { margin-top: 30px; display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(260px, 0.7fr); gap: 18px; align-items: start; }
+.section { padding: 25px; border: 1px solid var(--line); border-radius: 8px; background: white; }
+.sectionTitle { margin-bottom: 18px; font-size: 19px; }
+.choiceList { display: grid; gap: 10px; }
+.choice { min-height: 54px; padding: 0 14px; display: flex; align-items: center; gap: 11px; border: 1px solid var(--line); border-radius: 6px; cursor: pointer; }
+.choice:has(input:checked) { border-color: var(--accent); background: #f0f8f4; }
+.choice input { accent-color: var(--accent); }
+.voteButton { width: 100%; margin-top: 14px; }
+.resultList { display: grid; gap: 17px; }
+.resultTop { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 7px; font-size: 14px; }
+.track { height: 8px; overflow: hidden; border-radius: 4px; background: #e8ebe9; }
+.fill { height: 100%; border-radius: 4px; background: var(--accent); transition: width 220ms ease; }
+.muted { color: var(--muted); font-size: 14px; line-height: 1.65; }
+.joinRow { display: grid; grid-template-columns: 1fr auto; gap: 8px; }
+.joinRow button { min-width: 92px; }
+.participantList { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px; }
+.participant { padding: 7px 10px; border-radius: 5px; color: #44504a; background: #eef1ef; font-size: 13px; }
+.winner { padding: 20px; display: flex; align-items: center; gap: 14px; border: 1px solid #d8bc6a; border-radius: 7px; color: #62450d; background: #fbf2d8; }
+.winnerIcon { width: 43px; height: 43px; display: grid; place-items: center; border-radius: 50%; background: #f2d478; }
+.adminBox { margin-top: 16px; padding-top: 18px; border-top: 1px solid var(--line); }
+.adminBox p { margin-bottom: 12px; }
+.notFound { min-height: 60vh; display: grid; place-items: center; text-align: center; }
+
+@media (max-width: 760px) {
+  .topbar { padding: 0 20px; }
+  .content, .wideContent { padding-top: 38px; }
+  .panel { padding: 20px; }
+  .title, .activityTitle { font-size: 32px; }
+  .activityHeader, .grid { grid-template-columns: 1fr; }
+  .actionBar { justify-content: flex-start; }
+  .joinRow { grid-template-columns: 1fr; }
+  .joinRow button { min-height: 46px; }
+}
