@@ -18,10 +18,10 @@ const tools = [
 
 const readiness = [
   ["应用框架", "Next.js + TypeScript", true],
-  ["Vercel 构建", "已配置", true],
+  ["Vercel 部署", "已上线", true],
   ["健康检查", "/api/health", true],
   ["数据库", "等待连接", false],
-  ["Git 远程仓库", "等待创建", false],
+  ["Git 远程仓库", "已连接", true],
 ] as const;
 
 export default function Home() {
@@ -32,7 +32,7 @@ export default function Home() {
           <span className={styles.brandMark}>集</span>
           <span>{siteConfig.name}</span>
         </a>
-        <span className={styles.environment}>部署准备环境</span>
+        <span className={styles.environment}>线上测试环境</span>
       </header>
 
       <section className={styles.intro} id="top">
@@ -68,7 +68,7 @@ export default function Home() {
         <div>
           <p className={styles.eyebrow}>发布状态</p>
           <h2 id="readiness-title">上线前准备</h2>
-          <p className={styles.readinessNote}>完成数据库和 Git 连接后，即可导入 Vercel 发布。</p>
+          <p className={styles.readinessNote}>基础发布已经完成，连接数据库后即可启用投票和抽奖的数据功能。</p>
         </div>
         <dl className={styles.checklist}>
           {readiness.map(([label, value, done]) => (
