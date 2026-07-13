@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "集合工具",
-  description: "简单可靠的在线投票与抽奖工具",
+  title: "小工具",
+  description: "小工具测试",
 };
 
 export default function RootLayout({
