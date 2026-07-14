@@ -4,7 +4,8 @@
 
 - GitHub：`Sakurachu/Kairos_tool`
 - Vercel 项目：`sakurachus-projects/kairos-tool`
-- 正式站点：`https://kairos-tool.vercel.app`
+- 正式站点：`https://tool.sakurachu.cn`
+- Vercel 备用域名：`https://kairos-tool.vercel.app`
 - 数据库：Neon `kairos-tool-db`，Free 方案，区域 `iad1`
 
 Neon 已连接 Production、Preview、Development 环境，环境变量前缀为 `DATABASE`。
@@ -38,4 +39,4 @@ npx vercel env pull .env.local --environment=development
 
 ## 自定义域名
 
-在 Vercel 项目的 `Settings` -> `Domains` 添加域名，按提示修改 DNS，然后将 `NEXT_PUBLIC_SITE_URL` 更新为正式 HTTPS 地址并重新部署。
+`tool.sakurachu.cn` 通过阿里云 DNS 的 CNAME 记录连接 Vercel。修改或删除该记录会导致正式域名不可用；Vercel 自动管理 HTTPS 证书。
